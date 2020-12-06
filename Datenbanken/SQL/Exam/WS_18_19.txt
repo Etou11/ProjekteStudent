@@ -1,0 +1,158 @@
+1.
+select
+  cnum,
+  mnum,
+  vnum,
+  volume
+FROM
+  cvm
+WHERE
+  volume >= 300
+  AND volume <= 750
+ORDER BY
+  vnum ASC
+
+
+2.
+SELECT
+  cm.vnum
+FROM
+  cvm AS cm
+  INNER JOIN companies AS co ON co.cnum = cm.cnum
+  AND co.location = "Paris"
+ORDER BY
+  cm.vnum ASC
+
+
+3.
+select
+  ms.location
+FROM
+  markets AS ms
+UNION
+Select
+  cs.location
+FROM
+  companies AS cs
+UNION
+SELECT
+  vs.location
+FROM
+  vegetables AS vs
+ORDER by
+  ms.location DESC
+
+
+4.
+SELECT
+  cm.vnum
+FROM
+  cvm AS cm
+  INNER JOIN companies AS cs ON cs.location = "Paris"
+  INNER JOIN markets AS ms ON ms.location = "Paris"
+WHERE
+  cm.cnum = cs.cnum
+  AND cm.mnum = ms.mnum
+ORDER BY
+  vnum ASC
+
+
+5.
+SELECT
+  cm.cnum,
+  cm.vnum,
+  cm.mnum
+FROM
+  cvm AS cm
+  INNER JOIN markets AS ms ON cm.mnum = ms.mnum
+  INNER JOIN vegetables AS vs ON ms.location = vs.location
+  AND vs.vnum = cm.vnum
+
+
+6.
+SELECT
+  ms.mname
+FROM
+  markets AS ms
+WHERE
+  EXISTS (
+    SELECT
+      cnum,
+      mnum
+    FROM
+      cvm
+    WHERE
+      ms.mnum = mnum
+      AND cnum = "c1"
+  )
+ORDER BY
+  ms.mname ASC
+
+
+7.
+SELECT
+  mnum
+from
+  cvm
+WHERE
+  cnum = "c2"
+GROUP BY
+  mnum
+ORDER BY
+  mnum ASC
+
+
+8.
+SELECT
+  SUM(vs.weight * cm.volume) AS TOTAL
+FROM
+  vegetables AS vs
+  INNER JOIN cvm AS cm
+WHERE
+  cm.vnum = "v3"
+  AND cm.mnum = "m3"
+  AND vs.vnum = cm.vnum
+
+
+9.
+SELECT
+  cm.mnum
+FROM
+  cvm AS cm
+  INNER JOIN companies AS cs ON cm.cnum = cs.cnum
+  AND cs.location != "Paris"
+  INNER JOIN vegetables AS vs ON vs.color != "green"
+  AND vs.vnum = cm.vnum
+
+SELECT
+  cm.mnum
+FROM
+  cvm AS cm
+WHERE
+  EXISTS (
+    SELECT
+      cnum,
+      location
+    FROM
+      companies
+    WHERE
+      location != "Paris"
+      AND cnum = cm.mnum
+  )
+  AND EXISTS (
+    SELECT
+      vnum,
+      color
+    FROM
+      vegetables
+    WHERE
+      color != "green"
+      AND vnum = cm.vnum
+  )
+
+
+
+10.
+SELECT location FROM markets ORDER BY location ASC limit 1 
+
+SELECT location from markets order by location DESC limit 1

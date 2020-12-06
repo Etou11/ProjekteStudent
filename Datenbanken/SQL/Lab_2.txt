@@ -1,0 +1,127 @@
+##Lab2 by Christian Duerr, 756424##
+
+
+4.1
+
+#I have no idea how to solve this exercise after several hours of repeated tries. Any tried solution created with the help of Google returns common errors or syntax error, even with double checking in different syntax checker tools.
+
+1) Solution:
+
+SELECT capacity, series, TIMESTAMPDIFF(HOUR, ASSEMBLY_END_DATE, ASSEMBLY_START_DATE) AS duration
+FROM headers
+#Returns a "hour not valid in this context" error. Why? According to the Internet (as the slides are missing it), this should be the correct syntax -> TIMESTAMPDIFF(unit,datetime_expr1,datetime_expr2)
+
+2) Solution:
+
+SELECT capacity, series, TIMESTAMPDIFF(HOUR, TIMESTAMP(ASSEMBLY_END_DATE), TIMESTAMP(ASSEMBLY_START_DATE) AS duration 
+FROM headers
+#Trying to make sure, that DB2 reads the timestamps as timestapms, returns the very same error
+
+3) Solution:
+
+SELECT capacity, series, TIMEDIFF(HOUR, TIME(ASSEMBLY_START_DATE), TIME(ASSEMBLY_END_DATE)) AS Duration 
+FROM headers
+#Trying to convert the timestamps into time first, leading to the very same issue
+
+4) Solution:
+
+SELECT capacity, series, (ASSEMBLY_END_DATE - ASSEMBLY_START_DATE)/3600 AS Duration 
+FROM headers
+#Only solution that returns at least a result, although its neither using the function suggested, nor values anywhere near them shown in the exercise
+
+5) Solution:
+SELECT capacity, series, VALUES TIMESTAMP(ASSEMBLY_END_DATE) - TIMESTAMP(ASSEMBLY_START_DATE) AS Duration 
+FROM headers
+#Returns an "unexpected token" error
+
+
+4.2
+
+SELECT aggregate_id as engine, station_id, sequence_no, station_leaving_date, 'Shift A' AS SHIFT 
+FROM resumees 
+WHERE TIME(station_leaving_date) < TIME('14:30') AND TIME(station_leaving_date) > TIME('05:59')
+
+
+5.1
+
+SELECT MIN(sequence_no) AS lowest, MAX(sequence_no) AS highest, COUNT(sequence_NO) AS count 
+FROM resumees
+
+
+5.2
+
+SELECT aggregate_id AS engine, MIN(sequence_no) AS lowest, MAX(sequence_no) AS highest, COUNT(sequence_no) AS count 
+FROM resumees 
+GROUP BY aggregate_id ASC
+
+
+5.3
+
+SELECT aggregate_id AS Engine, MIN(sequence_no) AS lowest, MAX(sequence_no) as highest, COUNT(sequence_no) as count 
+FROM resumees 
+GROUP BY aggregate_id ASC
+HAVING COUNT(sequence_no) = MIN(sequence_no) + MAX(sequence_no)
+
+
+5.4
+
+SELECT aggregate_id AS Engine, MIN(sequence_no) AS lowest, MAX(sequence_no) as highest, COUNT(sequence_no) as count 
+FROM resumees 
+WHERE aggregate_id 
+LIKE ('MA%') 
+GROUP BY aggregate_id ASC
+
+
+5.5
+
+SELECT aggregate_id AS Engine, MIN(sequence_no) AS lowest, MAX(sequence_no) as highest, COUNT(sequence_no) as count 
+FROM resumees 
+WHERE station_id 
+NOT LIKE ('HTS%') 
+AND aggregate_id 
+LIKE ('MA%') 
+GROUP BY aggregate_id ASC
+
+NOTE: I can't reproduce the behaviour of getting less rows than the less restrictive method in 5.4.
+ANSWER: Not all aggregates with the id ...287 are manifactured by the excluded station, so only the engines coming actually from that excluded station are excluded.
+
+
+5.6
+
+SELECT SUM(sequence_no) AS count, 'Engines per Year' as text, YEAR(station_leaving_date) AS year 
+FROM resumees 
+CREATE VARIABLE year 
+INTEGER SET year = YEAR(station_leaving_date) 
+GROUP BY year ASC
+
+NOTE: Tried by declaring a variable and executing the YEAR() function this way, but this does not work.
+
+SELECT SUM(sequence_no) AS count, 'Engines per Year' as text, YEAR(station_leaving_date) AS year 
+FROM resumees 
+GROUP BY YEAR(station_leaving_date)
+
+
+6.1
+
+CREATE TABLE shift.labor AS 
+(SELECT aggregate_id AS engine, station_id, sequence_no, station_leaving_date, 'Shift A' AS shift 
+FROM resumees 
+WHERE TIME(station_leaving_date) < TIME('14:30') AND TIME(station_leaving_date) > TIME('05:59')) WITH DATA
+
+
+6.2
+
+INSERT INTO shift.labor (engine, station_id, sequence_no, station_leaving_date, shift) 
+VALUES ('XL  0197779', 'KTS4', ' 4', '2001-09-15-22.39.52.000000', 'Shift B')
+
+
+6.3
+
+DELETE FROM shift.labor
+ANSWER: Yes, the table is empty
+
+
+6.4
+
+DROP TABLE shift.labor
+ANSWER: DELETE removes data from a table, DROP deletes the entire table

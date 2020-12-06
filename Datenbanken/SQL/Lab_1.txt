@@ -1,0 +1,59 @@
+##Lab1 by Christian Duerr, 756424##
+
+2.1
+
+select capacity, series 
+from headers 
+order by series
+
+2.2
+
+select aggregate_id, ok_not_ok 
+from headers 
+where ok_not_ok=1 
+order by aggregate_id
+
+2.3
+
+select aggregate_id as engine, ok_not_ok 
+from headers 
+where ok_not_ok=1 
+order by aggregate_id
+
+2.4
+
+select aggregate_id as engine, replace(ok_not_ok, '1', 'ok') as io 
+from headers 
+where ok_not_ok=1 
+order by aggregate_id
+
+2.5
+
+select aggregate_id as engine, station_id, sequence_no, station_leaving_date 
+from resumees 
+where aggregate_id='MA  0197770' or aggregate_id='XL  0026065' 
+order by station_leaving_date
+
+2.6
+
+select aggregate_id, lower_limit, measured_value, upper_limit 
+from measured_values 
+where aggregate_id='XL  0026065' AND (measured_value * 1.07 > upper_limit OR measured_value * 0.93 < lower_limit)
+
+3.1
+
+select station_id, station_text 
+from station_descriptions 
+where exists (select * from resumees where station_id = station_descriptions.station_id)
+
+3.2
+
+select * from error_catalog 
+where exists (select * from error_logs where error_code = error_catalog.error_code)
+
+3.3
+
+select * 
+from error_logs 
+where error_reporting_date between '2001-10-17-14.08.44.000000' AND '2020-12-31-14.08.43.00000' 
+order by error_reporting_date

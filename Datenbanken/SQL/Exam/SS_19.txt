@@ -1,0 +1,98 @@
+1.1
+select
+  e.EMPNO,
+  e.ENAME,
+  e.SAL,
+  e.DEPTNO,
+  (SUM(e.SAL)/Count()) AS dept_avg_sal
+from
+  emp AS e
+  INNER JOIN DEPT AS dt 
+    ON e.deptno = dt.deptno
+    GROUP BY dt.deptno
+ORDER BY
+  dept_avg_sal DESC
+
+
+1.2
+SELECT
+  EPNO,
+  ENAME,
+  DEPTNO,
+  SAL,
+  (AVG(SAL + COMM)) AS dept_avg_sal
+from
+  emp
+WHERE
+  SAL > dept_avg_sal
+GROUP BY
+  DEPTNO
+ORDER BY
+  DEPTNO ASC
+
+
+SELECT empno, ename, deptno, sal, AVG(sal) AS dept_avg_sal
+from
+  emp
+  GROUP BY
+  DEPTNO
+WHERE
+  sal > dept_avg_sal
+ORDER BY
+  DEPTNO ASC
+
+
+1.3
+SELECT
+  DEPTNO,
+  SUM(SAL) AS DEPT_TOP
+from
+  emp
+GROUP BY
+  DEPTNO
+HAVING
+  MAX(SUM(sal))
+
+
+1.4
+SELECT
+  DEPTNO
+FROM
+  dept AS dt
+  INNER JOIN emp AS ep ON emp.DEPTNO = ep.DEPTNO
+WHERE
+  ep.Job = 'MANAGER'
+  AND ep.Job = 'ANALYST'
+GROUP BY
+  emp.DEPTNO
+
+
+1.5
+
+SELECT ENAME, SAL
+FROM emp as ep1
+WHERE 5 <=
+SELECT COUNT (*)
+FROM emp AS ep2
+WHERE (ep1.sal > ep2.sal);
+
+
+1.6
+
+SELECT
+  DEPTNO,
+  MIN(YEAR(hiredate)) AS First,
+  MAX(YEAR(hiredate)) AS LAST,
+  COUNT(*) AS NUM
+FROM
+  emp
+WHERE
+  DEPTNO != 10
+  AND (
+    hiredate = 1981
+    OR hiredate = 1982
+  )
+
+
+
+
