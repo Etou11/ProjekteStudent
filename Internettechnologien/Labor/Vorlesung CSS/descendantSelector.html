@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Descendant Selector</title>
+    <style>
+        body 
+        {
+            margin: 20px;
+        }
+        p .wichtig
+        {
+            background-color: red;
+        }
+        div
+        {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid black;
+            background-color: #d0d0c0;
+        }
+        #childSelectorDemo > div
+        {
+            background-color: red;
+        }
+        h1 + div > div
+        {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Descendant Selector</h1>
+    <h2 class="wichtig">Unterüberschrift</h2>
+    <div>
+        <p>Lorem, ipsum <span class="wichtig"> dolor</span> sit amet consectetur adipisicing elit. Odio corrupti voluptatum fugiat cupiditate. A magni, veritatis officiis odio, ducimus vitae, nisi necessitatibus neque amet repudiandae obcaecati impedit error et molestiae.</p>
+    </div>
+
+    <h1>Child Selector</h1>
+    <div id="childSelectorDemo">
+        <div>
+            <div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, vel commodi recusandae voluptates sit vitae quas totam ut quos maiores perferendis, facere molestiae accusantium architecto unde labore, reprehenderit corrupti? Sapiente.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

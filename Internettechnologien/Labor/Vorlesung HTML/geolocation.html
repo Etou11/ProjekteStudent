@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>GeoLocation</title>
+</head>
+<body>
+    <h1>GeoLocation</h1>
+    <div id="demo">Koordinaten</div>
+    <script>
+        const x = document.getElementById("demo");
+        function getLocation()
+        {
+            if(navigator.geolocation)
+            {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else
+            {
+                x.innerHTML = "GeoLocation tut hier nicht!";
+            }
+        }
+
+        function showPosition(position)
+        {
+            x.innerHTML = "Position: " + "<br>" + "Breite: " + position.coords.latitude + "<br>" + "Länge: " + position.coords.longitude;
+        }
+        getLocation();
+
+    </script>
+</body>
+</html>

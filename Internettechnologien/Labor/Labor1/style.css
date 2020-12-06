@@ -1,0 +1,348 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+.eighty
+{
+    margin-right: 10%;
+    margin-left: 10%;
+} 
+
+table 
+{
+    background-color: rgb(243, 243, 243);
+    border-collapse: collapse;
+}
+th, td 
+{
+    border: 1px solid darkgray;
+    padding: 3px;
+    width: 175px;
+}
+thead tr:first-child {
+    background-color: rgba(24, 89, 175, 0.514);
+}
+
+a:hover
+{
+    color: rgb(177, 1, 177);
+}
+
+.personalinformation
+{
+    background-color: lightgray;
+    margin: auto;
+    padding: 25px;
+    margin-right: 17%;
+    margin-left: 17%;
+}
+
+
+.center 
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bold
+{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.bartop
+{
+    text-align: center;
+    display: block;
+    padding: 0;
+    border: 0;
+    margin: 0px;
+    background-color: rgb(0, 0, 139);
+    height: 35px;
+}
+
+.container-left
+{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.container-right
+{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+button.language
+{
+    float: left;
+    text-align: center;
+    background-color: darkblue;
+    color: white;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    width: 2em;
+    cursor: pointer;
+}
+
+button.language:hover
+{
+    background-color: lightblue;
+}
+
+button.textsize
+{
+    float: left;
+    background-color: darkblue;
+    color: white;
+    padding: 0;
+    margin: 7px;
+    border: 0;
+    width: 2em;
+    cursor: pointer;
+}
+
+button.textsize:hover
+{
+    background-color: lightblue;
+}
+button.textsize:hover span
+{
+    background-color: lightblue;
+}
+button.textsize:hover span:after
+{
+    background-color: lightblue;
+}
+
+span.tinya
+{
+    background-color: darkblue;
+    color: white;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 10px;
+    margin-right: -3px;
+}
+
+button.functions
+{
+    float: right;
+    background-color: darkblue;
+    color: white;
+    border: 0;
+    margin: 7px;
+    cursor: pointer;
+}
+
+button.functions:hover
+{
+    background-color: lightblue;
+}
+
+button.socialmedia
+{
+    float: right;
+    margin: 0;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+}
+
+.navigationbar
+{
+    background-color: white;
+    height: 120px;
+    margin: 10px;
+    text-align: center;
+}
+
+.homebutton
+{
+    float: left;
+    border: 0;
+    cursor: pointer;
+}
+
+.dropdown 
+{
+    top: 40px;
+    right: 50px;
+    padding: 10px;
+    position: relative;
+    float: right;
+}
+  
+.dropdown-content 
+{
+    right: 10px;
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 2px 6px 10px rgba(0,0,0,1);
+    min-width: 100px;
+    line-height: 1em;
+    padding: 10px;
+}
+  
+.dropdown:hover .dropdown-content 
+{
+    display: flex;
+
+}
+
+.dropdown-content p
+{
+    cursor: pointer;
+    padding: 5px;
+}
+
+.dropdown-content p:hover
+{
+    color: lightcoral;
+    background-color: lightcyan;
+
+}
+
+.name
+{
+    text-align: center;
+}
+
+img.selfportrait
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+
+.emaillink:hover
+{
+    color: rgb(0, 185, 247);
+}
+
+.adtext
+{
+    padding: 1em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: solid darkgreen;
+    background-color: lightblue;
+    border-radius: 0.5em;
+    text-align: justify;
+}
+
+.review
+{
+    border: solid red;
+    padding: 3px;
+    background-color: lightyellow;
+}
+
+.orderformular
+{
+    text-align: center;
+    border: solid black;
+    background-color: rgba(144, 238, 144, 0.377);
+    margin-left: 15%;
+    margin-right: 15%;
+    line-height: 2em;
+
+}
+
+.orderlbl
+{
+    float: left;
+    position: relative;
+    left: 120px;
+}
+
+.orderinput
+{
+    float: right;
+    position: relative;
+    right: 120px;
+}
+
+.fineprint
+{
+    color: gray;
+    font-size: smaller;
+    text-align: center;
+}
+
+.locations
+{
+    height: 35em;
+}
+
+.locations h2
+{
+    text-align: center;
+}
+
+div.location
+{
+    box-sizing: border-box;
+    height: 100px;
+    width: 100px;
+    padding: 220px;
+    margin: auto;
+    float: left;
+}
+
+.locationtext
+{
+    padding: 1px;
+    line-height: 1em;
+    position: relative;
+    width: 160px;
+    text-align: center;
+    right: 37px;
+}
+
+.footbar
+{
+    margin: auto;
+    background-color: rgb(70, 70, 70);
+    height: 5em;
+    position: relative;
+    text-align: center;
+}
+
+.footbarcontainer
+{
+    margin-left: 35%;
+    margin-right: 40%;
+    padding: 20px;
+    width: 500px;
+}
+
+.footbar span
+{
+    font-size: large;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+
+}
+.footbar span:hover
+{
+    color: blue;
+}
+
+.hidden 
+{
+    color: rgb(70, 70, 70);
+}
+

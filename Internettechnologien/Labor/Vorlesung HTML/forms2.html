@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+</head>
+<body>
+    <h1>Forms</h1>
+    <form action="http://www2.hs-esslingen.de/~melcher/internet-technologien/formhandler.php" method="GET" enctype="multipart/form-data">
+    
+        <label for="lbl">Email:</label>
+        <input type="url" id="lbl" name="url" >
+        <input type="submit" name="Submit" Value="Submit" />
+        <br> <br> <br>
+
+        <label for="lbl2">Suche:</label>
+        <input type="search" id="lbl2" name="search" >
+        <input type="submit" name="Submit" Value="Submit" />
+        <br> <br> <br>
+
+        <label for="lbl3">Gewürfelter Wert:</label>
+        <input type="number" id="lbl3" name="number" min="0" max="10" step="2">
+        <input type="submit" name="Submit" Value="Submit" />
+        <br> <br> <br>
+
+        <label for="lbl4">Telefon:</label>
+        <input type="tel" id="lbl4" name="tel" required pattern="([+]|0+)[1-9][0-9/\\ -]+" />
+        <input type="submit" name="Submit" Value="Submit" />
+        <br> <br> <br>
+
+        <label for="lbl5">Würfel</label>
+        <input type="range" id="lbl5" name="würfel" min="1" max="6" />
+        <input type="submit" name="Submit" Value="Submit" />
+        <br> <br> <br>
+
+        <label for="lbl6">Datum:</label>
+        <input type="datetime-local" id="lbl6" name="localdate" />
+        <input type="time" name="zeit" />
+        <input type="submit" />
+        <br> <br> <br>
+
+        <label for="lbl7">Farbe:</label>
+        <input type=color id="lbl7" name="color" />
+        <input type="submit" />
+
+    </form>
+
+</body>
+</html>

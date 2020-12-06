@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+</head>
+<body>
+    <h1>Forms</h1>
+    <form action="http://www2.hs-esslingen.de/~melcher/internet-technologien/formhandler.php" method="POST" enctype="multipart/form-data">
+        <input type="submit" value="Senden" />
+        <input type="reset" value="Abbrechen" />
+        <input type="hidden" name="token" value="EB64A89A" />
+        <br>
+        <button type="submit" name="send" value="sent">Luxus-Button</button>
+        <br>
+        <input input="text" size="20" maxlength="40" name="vegetable" value="carrot" />
+        <input input="text" size="20" maxlength="40" name="vegetable" placeholder="Gemüse" />
+        <br>
+        <input type="password" size="12" maxlength="20" name="userpass" placeholder="*******" />
+        <br>
+        <textarea cols="40" rows="5" name="message"></textarea>
+        <br>
+        <fieldset>
+                <legend>Ownership</legend>
+        <label for="house">House</label>
+        <input id="house" type="checkbox" name="iHave[]" value="house" />
+        <br>
+        <label for="cat">Cat</label>
+        <input id="cat" type="checkbox" name="iHave[]" value="cat" />
+        </fieldset>
+        <br>
+        <br>
+        <br>
+
+        <fieldset>
+                <legend>Profession</legend>
+        <label for="student">Student</label>
+        <input id="student" type="radio" name="job" value="killer" checked/>
+        <label for="manager">Manager</label>
+        <input id="manager" type="radio" name="job" value="killer" />
+        </fieldset>
+        <br> <br> <br>
+
+        <select name="beverages[]" size="2" multiple required>
+            <option value="gin">Gin</option>>
+            <option value="rum">Rum</option>>
+            <option value="wodka">Wodka</option>>
+            <option value="beer">Beer</option>>
+        </select>
+        <br> <br> <br>
+
+        <label for="fileupload">File upload</label>
+        <input id="fileupload" type="file" name="image">
+
+    </form>
+
+</body>
+</html>

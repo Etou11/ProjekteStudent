@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <style>
+        canvas{
+        background-color: #e8e8e8;
+        border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas</h1>
+    <canvas id="feld" width="800" height="800"></canvas>
+    <script>
+        const canvas = document.getElementById("feld");
+        const context = canvas.getContext("2d");
+
+        context.beginPath();
+        context.arc(400, 400, 300, 0, 2 * Math.PI, false);
+        context.fillStyle = "green";
+        context.fill();
+
+        context.lineWidth = 5;
+        context.strokeStyle = "black";
+        context.stroke();
+
+    </script>
+</body>
+</html>

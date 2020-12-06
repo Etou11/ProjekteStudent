@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "de.hsesslingen.sa.App",
+            "projectName": "template",
+            "args": ["Hello", "World"]
+        }
+    ]
+}

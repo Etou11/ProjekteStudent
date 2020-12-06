@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Tables</title>
+    <style>
+        table {
+            background-color: lightgray;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid darkgray;
+        }
+        thead tr:first-child {
+            background-color: bisque;
+        }
+        thead tr:last-child {
+            background-color: darkgray;
+        }
+        tfoot {
+            background-color: darkgrey;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kaffee</h1>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Erntemengen 2018 in (t) Kaffeebohnen</th>
+            </tr>
+            <tr>
+                <th>Land</th>
+                <th>Ernte</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Brasilien</td>
+                <td>3.556.638</td>
+            </tr>
+            <tr>
+                <td>Vietnam</td>
+                <td>1.616.307</td>
+            </tr>
+            <tr>
+                <td>Indonesien</td>
+                <td>722.461</td>
+            </tr>
+            <tr>
+                <td>Welt</td>
+                <td>5.895.406</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">Quelle: FAO</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
